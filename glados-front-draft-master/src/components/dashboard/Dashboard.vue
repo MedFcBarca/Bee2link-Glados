@@ -3,54 +3,55 @@
 
     <h1 class="text-3xl font-bold text-slate-800 mb-6 tracking-tight flex items-center gap-3">
       Smart Home Dashboard
-      <div v-if="isSpeaking" class="voice-orb"></div>
+      <div
+        v-if="isSpeaking"
+        class="voice-orb"></div>
     </h1>
 
-    <div v-if="isSpeaking" class="flex justify-center mb-6">
-  <div class="voice-wave">
-    <span v-for="n in 10" :key="n" class="wave-bar"></span>
-  </div>
-</div>
+    <div
+      v-if="isSpeaking"
+      class="flex justify-center mb-6">
+      <div class="voice-wave">
+        <span
+          v-for="n in 10"
+          :key="n"
+          class="wave-bar"></span>
+      </div>
+    </div>
 
     <div class="flex flex-wrap gap-4 mb-8 items-center">
 
       <SearchBar
         v-model="searchQuery"
-        placeholder="Search devices..."
-      />
+        placeholder="Search devices..."/>
 
       <Dropdown
         v-model="selectedType"
-        :options="typeOptions"
-      />
+        :options="typeOptions"/>
 
       <Dropdown
         v-model="selectedStatus"
-        :options="statusOptions"
-      />
+        :options="statusOptions"/>
 
       <div class="flex items-center gap-3 ml-auto">
         
         <button
           @click="speakReport"
-          class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow transition flex items-center gap-2"
-        >
+          class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow transition flex items-center gap-2">
           🧠 AI Voice Report
         </button>
 
         <button
           ref="voiceButtonRef"
           @click.stop="toggleVoiceSettings"
-          class="px-3 py-2 bg-slate-200 hover:bg-slate-300 rounded-lg text-sm transition"
-        >
+          class="px-3 py-2 bg-slate-200 hover:bg-slate-300 rounded-lg text-sm transition">
           🎤 Voice Settings
         </button>
 
         <button
           v-if="isSpeaking"
           @click="stopSpeech"
-          class="px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm transition"
-        >
+          class="px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm transition">
           ⛔ Stop
         </button>
 
@@ -60,46 +61,53 @@
     <div
       v-if="showVoiceSettings"
       ref="voiceSettingsRef"
-      class="absolute top-16 right-4 bg-white border shadow-xl rounded-lg p-5 w-80 z-50"
-    >
+      class="absolute top-16 right-4 bg-white border shadow-xl rounded-lg p-5 w-80 z-50">
       <h3 class="font-bold text-lg mb-3">🎤 Voice Settings</h3>
 
       <label class="text-sm">Voice</label>
-      <select v-model="selectedVoice" class="w-full border p-2 rounded mb-3">
+      <select
+        v-model="selectedVoice"
+        class="w-full border p-2 rounded mb-3">
         <option
           v-for="v in availableVoices"
           :key="v.voice.voiceURI"
-          :value="v.voice.voiceURI"
-        >
+          :value="v.voice.voiceURI">
           {{ v.label }}
         </option>
       </select>
 
       <label class="text-sm">Pitch (tone)</label>
-      <input type="range" min="0.5" max="2" step="0.1"
-             v-model="pitch" class="w-full mb-3"/>
+      <input
+        type="range"
+        min="0.5"
+        max="2"
+        step="0.1"
+        v-model="pitch"
+        class="w-full mb-3"/>
 
       <label class="text-sm">Speed</label>
-      <input type="range" min="0.5" max="2" step="0.1"
-             v-model="rate" class="w-full mb-3"/>
+      <input
+        type="range"
+        min="0.5"
+        max="2"
+        step="0.1"
+        v-model="rate"
+        class="w-full mb-3"/>
 
       <button
         class="px-3 py-2 bg-indigo-500 text-white rounded w-full"
-        @click="showVoiceSettings = false"
-      >
+        @click="showVoiceSettings = false">
         Done
       </button>
     </div>
 
-    <div
-      class="grid gap-6 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 transition-all">
+    <div class="grid gap-6 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 transition-all">
       
       <EntityCard
         v-for="e in filteredEntities"
         :key="e.id"
         :entity="e"
-        @edit="openEditor"
-      />
+        @edit="openEditor"/>
 
     </div>
 
@@ -107,8 +115,7 @@
       v-if="showModal"
       :entity="selectedEntity"
       @close="showModal = false"
-      @updated="applyUpdate"
-    />
+      @updated="applyUpdate"/>
 
   </div>
 </template>
@@ -123,7 +130,12 @@ import EditEntityModal from "@/components/entities/EditEntityModal.vue"
 
 export default {
   name: "Dashboard",
-  components: { EntityCard, Dropdown, SearchBar, EditEntityModal },
+  components: {
+    EntityCard,
+    Dropdown,
+    SearchBar,
+    EditEntityModal 
+  },
 
   data() {
     return {
@@ -144,19 +156,49 @@ export default {
       isSpeaking: false,
 
       typeOptions: [
-        { label: "All Types", value: "all" },
-        { label: "Light", value: "light" },
-        { label: "Sensor", value: "sensor" },
-        { label: "Switch", value: "switch" },
-        { label: "Multimedia", value: "multimedia" },
-        { label: "Air Conditioner", value: "air_conditioner" }
+        {
+          label: "All Types",
+          value: "all" 
+        },
+        {
+          label: "Light",
+          value: "light" 
+        },
+        {
+          label: "Sensor",
+          value: "sensor" 
+        },
+        {
+          label: "Switch",
+          value: "switch" 
+        },
+        {
+          label: "Multimedia",
+          value: "multimedia" 
+        },
+        {
+          label: "Air Conditioner",
+          value: "air_conditioner" 
+        }
       ],
 
       statusOptions: [
-        { label: "All Status", value: "all" },
-        { label: "On", value: "on" },
-        { label: "Off", value: "off" },
-        { label: "Unavailable", value: "unavailable" }
+        {
+          label: "All Status",
+          value: "all" 
+        },
+        {
+          label: "On",
+          value: "on" 
+        },
+        {
+          label: "Off",
+          value: "off" 
+        },
+        {
+          label: "Unavailable",
+          value: "unavailable" 
+        }
       ]
     }
   },
@@ -241,8 +283,14 @@ export default {
         }
 
         const groups = {
-          english: { male: [], female: [] },
-          french: { male: [], female: [] }
+          english: {
+            male: [],
+            female: [] 
+          },
+          french: {
+            male: [],
+            female: [] 
+          }
         }
 
         all.forEach(v => {
@@ -253,10 +301,22 @@ export default {
 
         const result = []
 
-        if (groups.english.male[0]) result.push({ label: "🇺🇸 English — Male", voice: groups.english.male[0] })
-        if (groups.english.female[0]) result.push({ label: "🇺🇸 English — Female", voice: groups.english.female[0] })
-        if (groups.french.male[0]) result.push({ label: "🇫🇷 French — Male", voice: groups.french.male[0] })
-        if (groups.french.female[0]) result.push({ label: "🇫🇷 French — Female", voice: groups.french.female[0] })
+        if (groups.english.male[0]) result.push({
+          label: "🇺🇸 English — Male",
+          voice: groups.english.male[0] 
+        })
+        if (groups.english.female[0]) result.push({
+          label: "🇺🇸 English — Female",
+          voice: groups.english.female[0] 
+        })
+        if (groups.french.male[0]) result.push({
+          label: "🇫🇷 French — Male",
+          voice: groups.french.male[0] 
+        })
+        if (groups.french.female[0]) result.push({
+          label: "🇫🇷 French — Female",
+          voice: groups.french.female[0] 
+        })
 
         this.availableVoices = result
 
@@ -286,8 +346,8 @@ export default {
       this.entities.forEach(e => {
         const name = e.name.replace(/_/g, " ")
         const status = e.status === "on" ? "is turned on"
-                    : e.status === "off" ? "is currently off"
-                    : "is unavailable"
+          : e.status === "off" ? "is currently off"
+            : "is unavailable"
         const value = e.value ? `with a value of ${e.value}` : ""
         text += `${name} ${status} ${value}. `
       })

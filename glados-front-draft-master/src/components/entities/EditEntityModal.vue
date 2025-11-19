@@ -10,13 +10,14 @@
           <label class="text-sm text-slate-500">Name</label>
           <input
             v-model="form.name"
-            class="w-full border p-2 rounded-lg"
-          >
+            class="w-full border p-2 rounded-lg">
         </div>
 
         <div>
           <label class="text-sm text-slate-500">Status</label>
-          <select v-model="form.status" class="w-full border p-2 rounded-lg">
+          <select
+            v-model="form.status"
+            class="w-full border p-2 rounded-lg">
             <option value="on">On</option>
             <option value="off">Off</option>
             <option value="unavailable">Unavailable</option>
@@ -27,8 +28,7 @@
           <label class="text-sm text-slate-500">Value</label>
           <input
             v-model="form.value"
-            class="w-full border p-2 rounded-lg"
-          >
+            class="w-full border p-2 rounded-lg">
         </div>
 
       </div>
@@ -36,15 +36,13 @@
       <div class="flex justify-end gap-3 mt-6">
         <button
           @click="$emit('close')"
-          class="px-4 py-2 bg-slate-200 rounded-lg"
-        >
+          class="px-4 py-2 bg-slate-200 rounded-lg">
           Cancel
         </button>
 
         <button
           @click="update"
-          class="px-4 py-2 bg-indigo-600 text-white rounded-lg"
-        >
+          class="px-4 py-2 bg-indigo-600 text-white rounded-lg">
           Save
         </button>
       </div>
@@ -57,7 +55,10 @@
 export default {
   name: "EditEntityModal",
   props: {
-    entity: { type: Object, required: true }
+    entity: {
+      type: Object,
+      required: true 
+    }
   },
   emits: ["close", "updated"],
 
