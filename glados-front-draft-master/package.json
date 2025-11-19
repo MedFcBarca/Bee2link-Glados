@@ -7,20 +7,24 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "engines" : { 
-    "npm" : ">=8",
-    "node" : ">=18"
+  "engines": {
+    "npm": ">=8",
+    "node": ">=18"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "@tailwindcss/forms": "^0.4.0",
     "animate.css": "^4.1.1",
+    "apexcharts": "^5.3.6",
     "axios": "^0.26.0",
     "core-js": "^3.8.3",
     "maska": "^1.5.0",
+    "remixicon": "^4.7.0",
     "vue": "^3.2.13",
     "vue-advanced-cropper": "^2.8.0",
     "vue-material-design-icons": "^5.0.0",
     "vue-router": "^4.0.3",
+    "vue3-apexcharts": "^1.10.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
