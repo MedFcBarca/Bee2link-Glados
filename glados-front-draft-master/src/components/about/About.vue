@@ -13,8 +13,7 @@
 
     <div
       class="bg-white border border-slate-200 shadow-lg rounded-3xl p-10 
-             max-w-4xl mx-auto animate-slide-up"
-    >
+             max-w-4xl mx-auto animate-slide-up">
       <h2 class="text-2xl font-semibold text-slate-800 mb-6">
         The Origin Story
       </h2>

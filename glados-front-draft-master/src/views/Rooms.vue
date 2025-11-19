@@ -17,8 +17,7 @@
           width="100%"
           :height="chartHeight"
           :options="pieOptions"
-          :series="pieSeries"
-        />
+          :series="pieSeries"/>
       </div>
 
       <div class="bg-white rounded-2xl p-4 shadow-sm border w-full overflow-hidden">
@@ -31,8 +30,7 @@
           width="100%"
           :height="chartHeight"
           :options="barTypeOptions"
-          :series="barTypeSeries"
-        />
+          :series="barTypeSeries"/>
       </div>
 
     </div>
@@ -80,9 +78,7 @@ export default {
           const counts = this.rooms.map(r => r.entity_count)
 
           this.pieOptions = {
-            chart: {
-              toolbar: { show: false }
-            },
+            chart: { toolbar: { show: false } },
             labels,
             legend: {
               position: "bottom",
@@ -90,9 +86,7 @@ export default {
             },
             dataLabels: {
               enabled: true,
-              style: {
-                fontSize: window.innerWidth < 768 ? "11px" : "14px"
-              },
+              style: { fontSize: window.innerWidth < 768 ? "11px" : "14px" },
               formatter: (val, opts) => 
                 opts.w.config.labels[opts.seriesIndex]
             }
@@ -113,16 +107,10 @@ export default {
           const typeValues = Object.values(typeCount)
 
           this.barTypeOptions = {
-            chart: {
-              toolbar: { show: false }
-            },
+            chart: { toolbar: { show: false } },
             xaxis: {
               categories: typeLabels,
-              labels: {
-                style: {
-                  fontSize: window.innerWidth < 768 ? "11px" : "13px"
-                }
-              }
+              labels: { style: { fontSize: window.innerWidth < 768 ? "11px" : "13px" } }
             },
             dataLabels: { enabled: false },
             legend: { show: false },
@@ -142,7 +130,10 @@ export default {
           }
 
           this.barTypeSeries = [
-            { name: "Devices", data: typeValues }
+            {
+              name: "Devices",
+              data: typeValues 
+            }
           ]
         })
     }
