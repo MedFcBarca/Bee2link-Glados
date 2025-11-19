@@ -2,6 +2,7 @@
 
 import "./styles/tailwind.css"
 import "animate.css"
+import "remixicon/fonts/remixicon.css"
 
 import App from "./App.vue"
 import { createApp } from "vue"

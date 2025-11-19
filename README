@@ -1,0 +1,90 @@
+# Glados – Test Technique Full-Stack  
+Ce projet est ma réalisation du test technique GLaDOS.  
+Il inclut :  
+✔ des fonctionnalités back-end (Flask)  
+✔ une interface front-end moderne (Vue 3)  
+✔ la possibilité de consulter, filtrer et modifier les entités connectées  
+✔ un système de text-to-speech ("Glados Voice")  
+✔ des améliorations UI/UX et des vues supplémentaires (Rooms Dashboard)
+
+---
+
+#  Étapes réalisées
+
+## **1. Back-End – Ajout de filtres sur /entities**  
+L'endpoint `/entities` supporte désormais :  
+- `type` → light, sensor, switch, …  
+- `room` → UUID de la pièce  
+- `status` → on, off, unavailable  
+
+Implémentation réalisée en TDD, conformément à l'énoncé.
+
+---
+
+## **2. Front-End – Nouvelle interface Dashboard**
+Refonte complète de la vue Dashboard :
+- cartes visuelles pour chaque entité  
+- icônes dynamiques selon le type  
+- recherche en temps réel  
+- filtres avancés : type + statut  
+- affichage clair, moderne et responsive  
+- fenêtre d'édition d'une entité 
+
+---
+
+## **3. Full-Stack – Mise à jour des entités**
+Création de :
+- un endpoint `PUT /entities/<id>` côté Flask  
+- la modal d'édition côté Vue (nom, status, value)  
+- mise à jour immédiate dans l'interface après enregistrement  
+
+---
+
+## **4. Text-to-Speech – “Glados Voice”**
+Ajout complet du TTS :
+- choix de la voix (français/anglais, voix masculine/féminine)  
+- réglage de pitch et de vitesse 
+- bouton Stop pour interrompre Glados  
+- animation sonore (voice orb + waves)  
+- génération d'un rapport vocal dynamique basé sur toutes les entités  
+
+Effet WOW parfaitement respecté :D
+
+---
+
+## **5. BONUS – Vues Rooms + Graphiques**
+Développement de la page `Rooms` :
+- récupération dynamique des rooms  
+- calcul du nombre d'entités par pièce  
+- graphique en secteurs (pie chart)  
+- graphique en barres (bar chart)  
+- layout responsive corrigé  
+- meilleure lisibilité mobile  
+
+La page fonctionne entièrement côté API + Vue.
+
+---
+
+#  Architecture technique
+
+### **Backend**
+- Python + Flask
+- SQLAlchemy + Marshmallow
+- PostgreSQL (via Docker)
+- Architecture modules/resources/repositories
+
+### **Frontend**
+- Vue 3 
+- TailwindCSS
+- Heroicons
+- ApexCharts
+- Web Speech API 
+
+---
+
+# 📦 Installation & Lancement
+
+👉 L'installation complète du projet 
+est **déjà entièrement documentée** dans les READMEs d'origine fournis dans le projet 
+
+Merci !

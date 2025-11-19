@@ -4,4 +4,16 @@ export default {
   getEntities() {
     return coreApiClient.sendRequest("get", "/entities", {})
   },
+
+  updateEntity(id, payload) {
+    return coreApiClient.sendRequest("put", `/entities/${id}`, payload)
+  },
+
+  getRooms() {
+    return coreApiClient.sendRequest("get", "/rooms")
+  },
+
+  getRoom(id) {
+    return coreApiClient.sendRequest("get", `/rooms/${id}`)
+  }
 }

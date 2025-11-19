@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-col items-center gap-5 h-full">
+  <div class="flex flex-col h-screen overflow-hidden bg-gray-50">
+
     <Header />
-    <div class="bg-white rounded-md shadow-lg px-5 py-10 w-full flex-1">
+
+    <main class="flex-1 w-full px-8 py-10 overflow-y-auto">
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 
@@ -12,6 +14,16 @@ import Header from "@/components/navigations/Header.vue"
 
 export default {
   name: "Home",
-  components: { Header } 
+  components: { Header }
 }
 </script>
+
+<style scoped>
+main::-webkit-scrollbar {
+  width: 8px;
+}
+main::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+</style>

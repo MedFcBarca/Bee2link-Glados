@@ -1,51 +1,71 @@
 <template>
-  <div class="flex flex-col gap-5">
-    <span class="text-indigo-600 font-bold text-2xl">About</span>
-    <div class="flex flex-col gap-2 text-lg">
-      <p>
-        A potato cannon is a pipe-based cannon that uses air pressure (pneumatic), or combustion of a flammable gas (aerosol, propane, etc.), to launch projectiles at high speeds. They are built to fire chunks of potato, as a hobby, or to fire other sorts of projectiles, for practical use. Projectiles or failing guns can be dangerous and result in life-threatening injuries, including cranial fractures, enucleation, and blindness if a person is hit.<br>
-        The potato cannon can trace its origin to the World War II-era Holman Projector, which was a shipboard anti-aircraft weapon.
+  <div class="w-full space-y-12">
+
+    <div class="text-center animate-fade-in">
+      <h1 class="text-5xl font-extrabold tracking-tight text-slate-900">
+        About <span class="text-indigo-600">GLaDOS</span>
+      </h1>
+      <p class="text-slate-500 mt-3 max-w-xl mx-auto text-lg">
+        An experimental home automation system powered by AI.  
+        Designed to control your house… and maybe judge you a little.
       </p>
-      <p>
-        All spud guns propel projectiles down their barrels using pressurised gas in the same manner as a firearm (although at a much lower pressure). There are four basic ways that spud guns may achieve this:
-        <ul class="list-disc pl-5 inline-block">
-          <li>
-            By the combustion of a gaseous fuel-air mixture; this is generally called a combustion launcher, and its pressure is limited primarily by the energy density of the fuel-air mixture (less than 100 psi (0.7 MPa) with all safe fuels).
-          </li>
-          <li>
-            By the release of compressed gas (normally air) through a valve; such a launcher is typically referred to as a pneumatic launcher, and its power is limited primarily by the pressure of the air supply, be that from a compressor, manual pump or bottled gas.
-          </li>
-          <li>
-            By the explosion of a dry ice bomb placed in the pipe before the projectile, generally referred to as a dry ice bomb cannon, these are limited in power by the materials and size of the dry ice bomb but firing pressures can be around 200–300 psi (1.4–2.1 MPa).
-          </li>
-          <li>
-            By the combustion of a pre-pressurised fuel-air mixture; this is called a hybrid launcher, and yields higher pressures than that of a normal combustion spud gun, limited only by the construction of the launcher (generally a few hundred pounds-force per square inch).
-          </li>
-        </ul>
+    </div>
+
+    <div
+      class="bg-white border border-slate-200 shadow-lg rounded-3xl p-10 
+             max-w-4xl mx-auto animate-slide-up"
+    >
+      <h2 class="text-2xl font-semibold text-slate-800 mb-6">
+        The Origin Story
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg mb-6">
+        Everything started in a dusty garage with Chell Aperture, a brilliant 
+        inventor who dreamed of connecting every home in the world.  
+        Her goal? Make houses intelligent, autonomous… and slightly sarcastic.  
       </p>
-      <p>
-        <strong>
-          Combustion launchers
-        </strong><br>
-        Combustion powered spud guns typically have the least complex designs, the four basic elements of which are:
-        <ul class="list-disc pl-5 inline-block">
-          <li>
-            A fuel system
-          </li>
-          <li>
-            A combustion chamber
-          </li>
-          <li>
-            An ignition source
-          </li>
-          <li>
-            A barrel
-          </li>
-        </ul><br>
-        In order to fire, the operator loads a projectile into the barrel, adds fuel to the combustion chamber (for example aerosols or propane), and triggers the ignition source (often using a piezoelectric barbecue igniter). The fuel then ignites, creating hot expanding gases, and forcing the projectile out of the barrel. Distances vary greatly depending on many factors, including the type of fuel used, the efficiency of the fuel/air ratio, the combustion chamber/barrel ratio, and the flight characteristics of the projectile. Common distances vary from 100 to 200 meters, and there is a reported case of a cannon exceeding 500 meters of range.<br>
-        Advanced combustion launchers may include metered propane or calcium carbide (acetylene) injection to ensure proper fueling, chamber fans to mix the fuel with the air and accelerate venting of the chamber after firing, multiple spark gaps (spark strips) to decrease combustion time, and high-voltage ignition sources (flyback circuits, stun guns, camera flashes, etc.).<br>
-        Combustion launchers are usually less powerful than their pneumatic or hybrid counterparts, especially when hairspray / alcohol is used as a propellant. Bottled oxygen can be added to the firing chamber, though this can cause an explosion of the pipe when firing, potentially injuring anyone nearby.
+
+      <p class="text-slate-600 leading-relaxed text-lg mb-6">
+        After Chell’s tragic death due to an unfortunate incident involving a 
+        potato cake (yes, really), the project was inherited by her nephew: 
+        <strong>Dave LIDE</strong>.  
       </p>
+
+      <p class="text-slate-600 leading-relaxed text-lg mb-6">
+        Since then, the mission has accelerated: build the world’s most elegant, 
+        powerful, and slightly unsettling home automation interface.
+      </p>
+
+      <div class="border-t border-slate-200 my-8"></div>
+
+      <h2 class="text-2xl font-semibold text-slate-800 mb-4">
+        System Capabilities
+      </h2>
+
+      <ul class="grid md:grid-cols-2 gap-4 text-slate-700 text-lg">
+        <li class="flex items-center gap-3">
+          <span class="text-indigo-600 text-xl">•</span>
+          Real-time device monitoring
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-indigo-600 text-xl">•</span>
+          Full control of all entities
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-indigo-600 text-xl">•</span>
+          Speech synthesis powered by GLaDOS
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-indigo-600 text-xl">•</span>
+          Intelligent automation system
+        </li>
+      </ul>
+
+      <div class="border-t border-slate-200 my-8"></div>
+
+      <blockquote class="text-center text-2xl font-semibold text-slate-800 italic">
+        “The cake is a lie. But this project isn’t.”  
+      </blockquote>
     </div>
   </div>
 </template>
@@ -53,3 +73,23 @@
 <script>
 export default { name: "About" }
 </script>
+
+<style scoped>
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.9s ease forwards;
+}
+</style>
